@@ -163,7 +163,7 @@ init = () ->
     while y <= gh
       eles[x][y] = document.createElement("td")
 
-      eles[x][y].id            =  "grid-" + x.toString() + "-" + y.toString()
+      eles[x][y].id            =  "grid-#{x}-#{y}"
       eles[x][y].onclick       = makeHitter(x, y)
 
       tr.appendChild(eles[x][y])
@@ -218,7 +218,7 @@ init = () ->
   document.body.insertBefore buttons, document.getElementById("output")
 
   updateAll()
-  writeOutput "Total " + num.toString() + " mines."
+  writeOutput "Total #{num} mines."
 
 window.onload = () ->
   skel = document.body.innerHTML
