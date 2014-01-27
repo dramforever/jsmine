@@ -109,25 +109,24 @@ hit = (x, y) ->
   if hasWon()
     over("You win! Click anywhere below to restart", false)
 
+gridUnknown = (x, y) ->
+  eles[x][y].innerHTML = ""
+  eles[x][y].className = "unknown"
+
+
+gridZero = (x, y) ->
+  eles[x][y].innerHTML = ""
+  eles[x][y].className = ""
+
+gridMine = (x, y) ->
+  eles[x][y].innerHTML = ch_mine
+  eles[x][y].className = "mine"
+
+gridNum = (x, y) ->
+  eles[x][y].innerHTML = ch_lnum[disp[x][y]]
+  eles[x][y].className = ""
+
 updateGrid = (x, y) ->
-
-  gridUnknown = (x, y) ->
-    eles[x][y].innerHTML = ""
-    eles[x][y].className = "unknown"
-
-
-  gridZero = (x, y) ->
-    eles[x][y].innerHTML = ""
-    eles[x][y].className = ""
-
-  gridMine = (x, y) ->
-    eles[x][y].innerHTML = ch_mine
-    eles[x][y].className = "mine"
-
-  gridNum = (x, y) ->
-    eles[x][y].innerHTML = ch_lnum[disp[x][y]]
-    eles[x][y].className = ""
-
   switch disp[x][y]
     when undefined then gridUnknown(x, y)
     when 0 then gridZero(x, y)
