@@ -3,10 +3,11 @@ gh = null
 num = null
 
 levels = [
-    [10, 10,  3],
-    [20, 20, 20],
-    [20, 20, 30],
-    [20, 20, 50]
+  [10, 10,  3],
+  [20, 20, 20],
+  [20, 20, 30],
+  [20, 20, 50],
+  [75, 40, 60]
 ]
 
 ch_lnum = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
@@ -141,7 +142,7 @@ init = () ->
   lv = if location.hash.length > 1
     levels[parseInt(location.hash.slice(1))]
   else
-    levels[parseInt( location.hash = prompt("Which level? (1-3)", "1"))]
+    levels[parseInt( location.hash = prompt("Which level? (1-#{levels.length - 1})", "1"))]
 
   [gw, gh, num] = lv
 
@@ -207,7 +208,7 @@ init = () ->
   buttons.appendChild textLevel
 
   i = 1
-  while i <= 3
+  while i < levels.length
     e = document.createElement("button")
     e.onclick = makeSelect(i)
     e.innerHTML = i.toString()
