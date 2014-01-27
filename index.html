@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script src="index.js"></script>
+    <style>
+        #output {
+            height: 25px;
+        }
+
+        td {
+            width: 25px !important;
+            height: 25px !important;
+            text-align: center;
+        }
+
+        td.mine {
+            color: red;
+        }
+
+        td.unknown {
+            background-color: gray;
+        }
+
+        table.green {
+            background-color: #AFA;
+        }
+
+        table.red {
+            background-color: #FAA;
+        }
+
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<span id="output" onclick="reset()"></span>
+
+<table id="grid">
+</table>
+
+</body>
+</html>
