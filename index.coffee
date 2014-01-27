@@ -81,7 +81,6 @@ hasWon = () ->
   return true
 
 hit = (x, y) ->
-
   if mine[x][y]
     over("Game over! Click anywhere below to restart", true)
     return
@@ -146,8 +145,8 @@ init = () ->
 
   [gw, gh, num] = lv
 
-  hitOrReset = (x, y) ->
-    if !gameOver then hit(x,y) else reset()
+  makeHitter = (x, y) ->
+    () -> if gameOver then reset() else hit(x, y)
 
   gridEle = document.getElementById("grid")
   gridEle.innerHTML = ""
@@ -164,7 +163,7 @@ init = () ->
       eles[x][y] = document.createElement("td")
 
       eles[x][y].id            =  "grid-" + x.toString() + "-" + y.toString()
-      eles[x][y].onclick       = hitOrReset.bind(this, [x, y])
+      eles[x][y].onclick       = makeHitter(x, y)
 
       tr.appendChild(eles[x][y])
 
