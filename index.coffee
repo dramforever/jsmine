@@ -24,7 +24,6 @@ skel = null
 writeOutput = (msg) ->
   document.getElementById("output").innerHTML = msg
 
-
 reset = () ->
   avoid.length = 0
   gameOver = false
@@ -33,8 +32,7 @@ reset = () ->
 
 
 over = (msg, lose) ->
-  if gameOver
-    return
+  if gameOver then return
 
   writeOutput msg
   gameOver = true
@@ -141,15 +139,12 @@ updateAll = () ->
     x++
 
 init = () ->
-  lv = null
-  if location.hash.length > 1
-    lv = levels[parseInt(location.hash.slice(1))]
+  lv = if location.hash.length > 1
+    levels[parseInt(location.hash.slice(1))]
   else
-    lv = levels[parseInt( location.hash = prompt("Which level? (1-3)", "1"))]
+    levels[parseInt( location.hash = prompt("Which level? (1-3)", "1"))]
 
-  gw  = lv[0]
-  gh  = lv[1]
-  num = lv[2]
+  [gw, gh, num] = lv
 
   hitOrReset = (x, y) ->
     if !gameOver then hit(x,y) else reset()
