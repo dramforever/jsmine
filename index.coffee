@@ -70,7 +70,6 @@ minesAround = (x, y) ->
 
   return sum
 
-
 hasWon = () ->
   a = 0
   while a <= gw
@@ -82,7 +81,6 @@ hasWon = () ->
     a++
 
   return true
-
 
 hit = (x, y) ->
 
@@ -133,7 +131,6 @@ updateGrid = (x, y) ->
     when "M" then gridMine(x, y)
     else gridNum(x, y)
 
-
 updateAll = () ->
   x = 0
   while x <= gw
@@ -142,7 +139,6 @@ updateAll = () ->
       updateGrid(x,y)
       y++
     x++
-
 
 init = () ->
   lv = null
@@ -224,12 +220,10 @@ init = () ->
     buttons.appendChild(e)
     i++
 
-
   document.body.insertBefore buttons, document.getElementById("output")
 
   updateAll()
   writeOutput "Total " + num.toString() + " mines."
-
 
 window.onload = () ->
   skel = document.body.innerHTML
